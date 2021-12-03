@@ -1,0 +1,178 @@
+h1,h2,h3{
+    font-family: 'DM Sans', sans-serif;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu{
+    border-color: black;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.menu-item{
+    font-family: 'Roboto', sans-serif;
+    color: #663B2C;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.body-style{
+    background-color: #EEEFF5;
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo-img{
+    width: 2rem;
+    height:2rem;
+    margin-right: 1rem;
+}
+
+.logo-text{
+    font-size: 2em;
+    color: #B4A680;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar{
+    background-color: rgba(255,255,255,0.7);
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 100%;
+
+}
+
+.brdng-card1{
+    background-image: url('../../../assets/img/registro.png');
+    background-size: cover;
+    height:30rem;
+    display: flex;
+    width: 100%;
+}
+
+.brdng-card2{
+    background-image: url('../../../assets/img/landing2.jpg');
+    background-size: cover;
+    height:25rem;
+    display: flex;
+    width: 100%;
+}
+
+.brdng-card3{
+    background-image: url('../../../assets/img/landing3.jpg');
+    background-size: cover;
+    background-color: #fff;
+    height:25rem;
+    display: flex;
+        /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
+    /* overflow: hidden; */
+    width: 100%;
+}
+
+.brdng-text-container1{
+
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    top: 130px;
+    position: absolute;
+    justify-content: center;
+    width: 30%;
+    height: 40%;
+    background-color: rgba(255,255,255,0.7);
+   left: 0;
+}
+
+.brdng-text-container2{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: absolute;
+    justify-content: center;
+    width: 30%;
+    height: 40%;
+    background-color: rgba(255,255,255,0.7);
+    right: 0;
+}
+
+.brdng-text-container3{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    position: absolute;
+    width: 30%;
+    height: 40%;
+    background-color: rgba(255,255,255,0.7);
+    left:0
+}
+
+
+
+.brdng-title{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    color:#8A7965 ;
+    text-align: center;
+
+}
+
+.brdng-button{
+    background-color: #B4A680;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 0.3rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 0.6rem;
+    width: 70%;
+    border-color: transparent;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.brdng-subtitle{
+   text-align: center;
+}
+
+.footer{
+    background-color: #DAD0B5;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:1rem
+}
+
+.footer-text{
+    color: #663B2C;
+    line-height: 0.1px;
+    font-style: italic;
+}
+
+

@@ -1,0 +1,45 @@
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo-img{
+    width: 2rem;
+    height:2rem;
+    margin-right: 1rem;
+}
+
+.logo-text{
+    font-size: 2em;
+    color: #DAD0B5;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar{
+    background-color: #8A7965;
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    /* position: absolute; */
+    width: 100%;
+
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.menu-item{
+    font-family: 'Roboto', sans-serif;
+    color: white ;
+    margin-right: 10px;
+    text-decoration: none;
+}

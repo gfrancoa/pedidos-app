@@ -1,0 +1,58 @@
+<div class="flip-card">
+      <div class="flip-card-inner" id="card-front">
+        <div class="card flip-card-front">
+          <div class="img"></div>
+          <div class="text-container">
+            <div class="horizontal">
+              <p class="card-title">Pan brioche</p>
+              <div class="favorite">🧡</div>
+            </div>
+
+            <div>
+              <span class="price">$1.100</span>
+              <span class="small-text">Precio unitario</span>
+            </div>
+
+            <div class="card-subtitle-container">
+              <span class="text"
+                >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Corporis magni, sapiente saepe expedita quidem harum?</span
+              >
+              <a id="flip" href="#">Ver más</a>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button class="round-btn">-</button>
+            <input class="input-card" type="text" />
+            <button class="round-btn">+</button>
+          </div>
+
+          <button class="btn">Añadir al Carrito</button>
+        </div>
+
+        <div class="card flip-card-back">
+          <p
+            style="
+              padding: 0.5rem;
+              font-family: 'DM Sans', sans-serif;
+              font-size: 20px;
+              color: white;
+            "
+          >
+            Pan de Hamburguesa masa Brioche 85 gramos
+            <a href="#" id="flip-back">Volver</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("flip").onclick = function () {
+        document.getElementById("card-front").classList.toggle("do-flip");
+      };
+
+      document.getElementById("flip-back").onclick = function () {
+        document.getElementById("card-front").classList.toggle("do-flip");
+      };
+    </script>
