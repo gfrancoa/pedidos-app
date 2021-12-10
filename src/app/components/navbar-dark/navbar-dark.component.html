@@ -6,9 +6,14 @@
         </div>
 
         <div class="menu">
-          <a href="#" class="menu-item">Iniciar sesión</a>
-          <a href="#" class="menu-item">Perfil</a>
-          <a href="#" class="menu-item">Favoritos</a>
+          
+          <a [routerLink]="['/cart']" class="menu-item">
+            <fa-icon [icon]="shoppingIcon" class="icon-cart"></fa-icon>
+            <div *ngIf="storage.items && storage.items.length>0" class="badge">
+                <p  class="badge-text">{{storage.items.length}}</p>
+              </div>
+          </a>
+        
         </div>
       </div>
     </div>

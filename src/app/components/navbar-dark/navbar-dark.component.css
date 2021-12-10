@@ -40,6 +40,33 @@
 .menu-item{
     font-family: 'Roboto', sans-serif;
     color: white ;
-    margin-right: 10px;
+    margin-right: 20px;
     text-decoration: none;
+}
+
+.icon-cart{
+    font-size: 3.5rem;
+    color: #DAD0B5;
+}
+
+.badge{
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding:0.1rem;
+    margin-left: 0.5rem;
+    background-color: rgb(255, 0, 0);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.2rem;
+}
+
+.badge-text{
+    font-size: 0.9rem;
+font-family: 'Roboto', serif;
+color: white;
+
 }

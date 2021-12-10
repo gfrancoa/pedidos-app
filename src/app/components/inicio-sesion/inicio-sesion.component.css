@@ -22,14 +22,12 @@
 }
 
 .body-bg{
-    margin: 0;
-    padding: 0;
     background-image: url('../../../assets/img/bread1.png');
+    background-repeat: no-repeat;
+    height: 100vh;
     display: flex;
-    flex:1;
     align-items: center;
     justify-content: center;
-    height: 100%;
 }
 
 .card{

@@ -1,0 +1,24 @@
+<app-navbar-dark></app-navbar-dark>
+
+<a [routerLink]="['/home']" class="link-container">
+  <fa-icon [icon]="arrowLeft" class="icon-arrow"></fa-icon>
+  <span class="text-link">Seguir comprando</span>
+</a>
+
+<div class="logo">
+  <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
+  <h3 class="logo-text">Resumen de tu pedido</h3>
+</div>
+
+<div *ngIf="storage.items.length > 0" class="cart-container">
+  <div *ngFor="let item of storage.items">
+    <p>{{ item.tipo_masa }}</p>
+  </div>
+</div>
+
+<div *ngIf="storage.items.length == 0">
+  <p class="logo-text text-center">No hay items en el carrito.</p>
+  <div class="btn-center">
+    <button class="btn" [routerLink]="['/home']">Empezar mi pedido</button>
+  </div>
+</div>

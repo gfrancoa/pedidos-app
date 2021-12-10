@@ -1,8 +1,147 @@
- <app-navbar-dark></app-navbar-dark>
+<app-navbar-dark></app-navbar-dark>
 
 <div class="logo">
-      <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
-      <h3 class="logo-text">Hamburguesa</h3>
+  <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
+  <h3 class="logo-text">Realiza tu pedido</h3>
+</div>
+
+<h3 class="logo-text text-center">Escoge el tipo de pan:</h3>
+<div class="img-card-container">
+  <div *ngFor="let item of configObj.masa; let i = index">
+    <a class="img-link" (click)="selectTipoMasa(i)">
+      <img
+        src="{{ item.foto }}"
+        alt=""
+        class="image-card"
+        [ngClass]="{ 'image-card-border': indexSelected == i }"
+      />
+      <p class="card-title text-center">{{ item.tipo }}</p>
+    </a>
+  </div>
+</div>
+
+<p class="card-subtitle" *ngIf="indexSelected != -1">
+  {{ configObj.masa[indexSelected].descripcion }}
+</p>
+
+<div class="btn-center">
+  <button *ngIf="indexSelected != -1" class="btn2" (click)="mostrarForm()">
+    CONTINUAR
+  </button>
+</div>
+
+<!-- AQUÍ VA EL FORM -->
+<div class="card" *ngIf="formIsVisible">
+  <div class="logo">
+    <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
+    <p class="card-title">Elige las características de tu producto</p>
+  </div>
+
+  <form action="" class="form-style">
+    <label for="">Tipo de pan</label>
+    <select #selectPan (change)="selectTipoPan(selectPan.value)">
+      <option [value]="undefined" selected>Seleccione un tipo de pan</option>
+      <option
+        *ngFor="let item of configObj.tipo_pan; let i = index"
+        [value]="i"
+      >
+        {{ item.tipo }}
+      </option>
+    </select>
+
+    <div *ngIf="data_tamano.length > 0 && selectPan.value != undefined">
+      <label for="">Tamaño</label>
+      <select #seleccionTamano (change)="selectTamano(seleccionTamano.value)">
+        <option [value]="undefined" selected>Seleccione un tamaño</option>
+        <option *ngFor="let item of data_tamano; let i = index" [value]="i">
+          {{ item.dim }}
+        </option>
+      </select>
     </div>
 
-<app-card></app-card>
+    <div *ngIf="data_topping.length > 0">
+      <label for="">Topping</label>
+      <select
+        #seleccionTopping
+        (change)="selectTopping(seleccionTopping.value)"
+      >
+        <option [value]="undefined" selected>Seleccione un topping</option>
+        <option *ngFor="let item of data_topping; let i = index" [value]="i">
+          {{ item.top }}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf="topping">
+      <label for="">¿Cuántos panes vas a pedir?</label>
+      <input
+        #cantidadPanes
+        type="number"
+        (keyup)="selectCantidad(cantidadPanes.value)"
+      />
+    </div>
+
+    <img *ngIf="foto" class="image-card img-center" src="{{ foto }}" alt="" />
+
+    <span
+      *ngIf="
+        tipo_masa.length > 0 &&
+        tipo_pan.length > 0 &&
+        longitud_gramos.length > 0 &&
+        topping.length > 0 &&
+        cantidad > 0
+      "
+      class="card-title"
+      >Precio unitario: $ {{ calcularTotal()[0] }}</span
+    >
+    <span
+      *ngIf="
+        tipo_masa.length > 0 &&
+        tipo_pan.length > 0 &&
+        longitud_gramos.length > 0 &&
+        topping.length > 0 &&
+        cantidad > 0
+      "
+      class="card-title"
+      >Precio total productos: $ {{ calcularTotal()[1] }}</span
+    >
+
+    <button
+      [ngClass]="{
+        'btn-disabled': !(
+          tipo_masa.length > 0 &&
+          tipo_pan.length > 0 &&
+          longitud_gramos.length > 0 &&
+          topping.length > 0 &&
+          cantidad > 0
+        )
+      }"
+      class="btn"
+      type="submit"
+      (click)="agregarItem()"
+      [disabled]="
+        !(
+          tipo_masa.length > 0 &&
+          tipo_pan.length > 0 &&
+          longitud_gramos.length > 0 &&
+          topping.length > 0 &&
+          cantidad > 0
+        )
+      "
+    >
+      Agregar al carrito
+    </button>
+
+    <button
+     
+      class="btn"
+      type="submit"
+      (click)="cleanForm()"
+      
+    >
+      Limpiar formulario
+    </button>
+
+    <p *ngIf="confirmation" class="confirm-text text-center">Item añadido satisfactoriamente al carrito.</p>
+  </form>
+</div>
