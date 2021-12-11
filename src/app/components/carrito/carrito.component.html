@@ -11,9 +11,164 @@
 </div>
 
 <div *ngIf="storage.items.length > 0" class="cart-container">
-  <div *ngFor="let item of storage.items">
-    <p>{{ item.tipo_masa }}</p>
+  <div class="item-container">
+    <p class="text-right-cart"></p>
+    <p class="text-right-cart">Descripción producto</p>
+    <p class="text-right-cart">Cantidad</p>
+    <p class="text-right-cart">Sub-total</p>
   </div>
+  <div
+    class="items-container"
+    *ngFor="let item of storage.items; let i = index"
+  >
+    <div class="item-container">
+      <img class="photo-cart" src="{{ item.foto }}" alt="" />
+      <div class="text-container">
+        <p class="title-cart">
+          {{ item.tipo_pan + " " + item.tipo_masa }}
+        </p>
+        <p class="subtitle-cart">
+          {{ item.longitud_gramos + ". Topping: " + item.topping }}
+        </p>
+      </div>
+      <div></div>
+
+      <fa-icon
+        [icon]="minus"
+        class="icon-amount"
+        (click)="lessAmount(i)"
+      ></fa-icon>
+      <p class="text-right-cart">{{ item.cantidad }}</p>
+      <fa-icon
+        [icon]="plus"
+        class="icon-amount"
+        (click)="moreAmount(i)"
+      ></fa-icon>
+
+      <p class="text-right-cart" style="margin-left: 1.5rem">
+        ${{ item.subtotal }}
+      </p>
+      <a (click)="borrarItem(i)">
+        <fa-icon [icon]="trash" class="icon-trash"></fa-icon>
+      </a>
+    </div>
+
+    <div *ngIf="i < storage.items.length - 1">
+      <hr />
+    </div>
+  </div>
+  <div class="item-container" style="justify-content: space-between">
+    <p class="text-right-cart">Total</p>
+
+    <p class="text-right-cart">${{ calcularTotal() }}</p>
+  </div>
+</div>
+
+<div *ngIf="storage.items.length > 0" class="pedido-detalle">
+  <div class="logo">
+    <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
+    <h3 class="logo-text">Datos adicionales del pedido</h3>
+  </div>
+
+  <label for="">Fecha de entrega requerida *</label>
+  <input
+    #fechaEntrega
+    type="date"
+    name=""
+    id=""
+    (change)="setDate(fechaEntrega.value)"
+  />
+
+  <label for="">Observaciones</label>
+  <input type="text" name="" id="" />
+</div>
+
+<div
+  *ngIf="storage.items.length > 0 && isFormVisible == true"
+  class="pedido-detalle"
+>
+  <div class="logo">
+    <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
+    <h3 class="logo-text">Ingresa tus datos:</h3>
+  </div>
+
+  <input
+    *ngIf="isFormEmptyVisible"
+    type="text"
+    placeholder="Nombre completo *"
+    #ncompleto
+    (keyup)="setNombrePersona(ncompleto.value)"
+  />
+  <input
+    *ngIf="isFormEmptyVisible"
+    type="text"
+    placeholder="Nombre del negocio *"
+    #nnegocio
+    (keyup)="setNombreNegocio(nnegocio.value)"
+  />
+  <input *ngIf="isFormEmptyVisible" type="tel" placeholder="Número celular *" #ncelular (keyup)="setCelular(ncelular.value)" />
+  <div *ngIf="isFormEmptyVisible" class="radio-group">
+    <div>
+      <input type="radio" name="id" value="CC" #radioid (change)="setTipoId(radioid.value)" />
+      <span class="form-text">CC</span>
+    </div>
+    <div>
+      <input type="radio" name="id" value="NIT" />
+      <span class="form-text">NIT</span>
+    </div>
+  </div>
+
+  <span class="form-help"
+    >* Cédula sin puntos ni comas. NIT sin dígito de verificación</span
+  >
+  <input
+    placeholder="CC/NIT *"
+    #ccnit
+    type="text"
+    (keyup)="setId(ccnit.value)"
+  />
+</div>
+
+<div
+  class="btn-center"
+  *ngIf="isButtonVisible && isFormVisible && storage.items.length > 0"
+>
+  <button
+    [ngClass]="{
+      'btn-disabled': !(
+        storage.items.length > 0 &&
+        fecha_entrega.length > 0 &&
+        id_usuario.length > 0
+      )
+    }"
+    class="btn2"
+    (click)="findUser()"
+  >
+    CONTINUAR
+  </button>
+</div>
+
+<div
+  class="btn-center"
+  *ngIf="isFormEmptyVisible && isFormVisible && storage.items.length > 0"
+>
+  <button
+    [ngClass]="{
+      'btn-disabled': !(
+        storage.items.length > 0 &&
+        fecha_entrega.length > 0 &&
+        nombre_persona.length > 0 &&
+        nombre_negocio.length > 0 &&
+        tipo_id.length > 0 &&
+        celular.length > 0 &&
+        id_usuario.length > 0
+      )
+    }"
+    class="btn2"
+    (click)="enviarPedido()"
+  >
+    Enviar pedido
+  </button>
 </div>
 
 <div *ngIf="storage.items.length == 0">

@@ -132,16 +132,33 @@
       Agregar al carrito
     </button>
 
-    <button
+    
+
+    <div *ngIf="confirmation">
+      <p class="confirm-text text-center">Item añadido satisfactoriamente al carrito.</p>
+      <div class="btn-group">
+        <button
      
       class="btn"
       type="submit"
       (click)="cleanForm()"
       
     >
-      Limpiar formulario
+      Añadir otro producto
     </button>
 
-    <p *ngIf="confirmation" class="confirm-text text-center">Item añadido satisfactoriamente al carrito.</p>
+    <button
+     
+      class="btn-outline"
+      type="submit"
+      [routerLink]="['/cart']"
+      
+    >
+      Ver Carrito
+    </button>
+    </div>
+      </div>
+      
+    
   </form>
 </div>

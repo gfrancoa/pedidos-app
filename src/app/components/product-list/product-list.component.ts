@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
 
   //CONTROLAR SI USUARIO SE DEVUELVE (DESAPARECER DROPDOWNS)
   //CONTROLAR SI EL USUARIO CAMBIA DE PRODUCTO VS EL PRECIO UNITARIO
+  //deshabilitar fechas de entrega menores a la de hoy
   public indexSelected = -1;
   public configObj: any;
   public tipo_masa: String = '';
@@ -129,10 +130,10 @@ export class ProductListComponent implements OnInit {
 
     this.storage.items = [...this.storage.items, item];
     this.confirmation = true;
-    setTimeout(() => {
-      this.confirmation = false;
-      this.cleanForm();
-    }, 500);
+    // setTimeout(() => {
+    //   this.confirmation = false;
+    //   this.cleanForm();
+    // }, 500);
   }
 
   calcularTotal() {
@@ -164,5 +165,6 @@ export class ProductListComponent implements OnInit {
     this.foto = '';
     this.cantidad = 0;
     this.formIsVisible = false;
+    this.confirmation = false;
   }
 }
