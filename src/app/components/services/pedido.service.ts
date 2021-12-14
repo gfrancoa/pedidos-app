@@ -5,28 +5,28 @@ import { ConfigService } from './config.service';
 @Injectable({
   providedIn: 'root',
 })
-export class ProductoService {
+export class PedidoService {
   readonly URL_API = this.config.getConfig().backend.url;
 
   constructor(private config: ConfigService, private http: HttpClient) {}
 
   create(data: any) {
-    return this.http.post(this.URL_API + '/product', data);
+    return this.http.post(this.URL_API + '/order', data);
   }
 
   update(data: any, id: any) {
-    return this.http.put(this.URL_API + '/product/' + id, data);
+    return this.http.put(this.URL_API + '/order/' + id, data);
   }
 
   delete(id: string) {
-    return this.http.delete(this.URL_API + '/product/' + id);
+    return this.http.delete(this.URL_API + '/order/' + id);
   }
 
   list() {
-    return this.http.get(this.URL_API + '/product');
+    return this.http.get(this.URL_API + '/order');
   }
 
   listById(id: any) {
-    return this.http.get(this.URL_API + '/product/' + id);
+    return this.http.get(this.URL_API + '/order/' + id);
   }
 }

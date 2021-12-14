@@ -2,7 +2,7 @@ const ctrlPedido = {},
   Pedido = require("../models/pedidos");
 
 ctrlPedido.create = async (req, res) => {
-  console.log("se ejecuta metodo create");
+  // console.log("se ejecuta metodo create");
   const newPedido = new Pedido({
     items: req.body.items,
     usuario: req.body.usuario,
@@ -14,7 +14,9 @@ ctrlPedido.create = async (req, res) => {
   await newPedido.save();
 
   res.json({
-    msg: "Product created successfully",
+    message: "Pedido creado exitosamente",
+    status: 201,
+    id: newPedido._id,
   });
 };
 
@@ -59,7 +61,7 @@ ctrlPedido.pedidoByIdUser = async (req, res) => {
 };
 
 ctrlPedido.delete = async (req, res) => {
-  console.log(req.params._id);
+  // console.log(req.params._id);
   const { _id } = req.params;
   const users = await Pedido.deleteOne({ _id: _id });
   res.json({ message: "Pedido eliminado satisfactoriamente" });

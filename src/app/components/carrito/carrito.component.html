@@ -80,7 +80,35 @@
   />
 
   <label for="">Observaciones</label>
-  <input type="text" name="" id="" />
+  <input #obs type="text" name="" id="" (keyup)="setObservaciones(obs.value)" />
+</div>
+
+<div *ngIf="isFormCompleteVisible && storage.items.length > 0" class="pedido-detalle">
+  <div class="logo">
+    <img class="logo-img" src="assets/img/logopaneton.png" alt="" />
+    <h3 class="logo-text">Tus datos</h3>
+  </div>
+  <label class="label-complete-info" for="">Nombre: </label>
+  <span class="complete-info-text">{{ nombre_persona }}</span>
+  <div>
+    <label class="label-complete-info" for="">Nombre negocio: </label>
+    <span class="complete-info-text">{{ nombre_negocio }}</span>
+  </div>
+
+  <div>
+    <label class="label-complete-info" for="">Tipo ID: </label>
+    <span class="complete-info-text">{{ tipo_id }}</span>
+  </div>
+
+  <div>
+    <label class="label-complete-info" for="">ID: </label>
+    <span class="complete-info-text">{{ id_usuario }}</span>
+  </div>
+
+  <div>
+    <label class="label-complete-info" for="">Celular: </label>
+    <span class="complete-info-text">{{ celular }}</span>
+  </div>
 </div>
 
 <div
@@ -106,10 +134,22 @@
     #nnegocio
     (keyup)="setNombreNegocio(nnegocio.value)"
   />
-  <input *ngIf="isFormEmptyVisible" type="tel" placeholder="Número celular *" #ncelular (keyup)="setCelular(ncelular.value)" />
+  <input
+    *ngIf="isFormEmptyVisible"
+    type="tel"
+    placeholder="Número celular *"
+    #ncelular
+    (keyup)="setCelular(ncelular.value)"
+  />
   <div *ngIf="isFormEmptyVisible" class="radio-group">
     <div>
-      <input type="radio" name="id" value="CC" #radioid (change)="setTipoId(radioid.value)" />
+      <input
+        type="radio"
+        name="id"
+        value="CC"
+        #radioid
+        (change)="setTipoId(radioid.value)"
+      />
       <span class="form-text">CC</span>
     </div>
     <div>
@@ -151,6 +191,29 @@
 <div
   class="btn-center"
   *ngIf="isFormEmptyVisible && isFormVisible && storage.items.length > 0"
+>
+  <button
+    [ngClass]="{
+      'btn-disabled': !(
+        storage.items.length > 0 &&
+        fecha_entrega.length > 0 &&
+        nombre_persona.length > 0 &&
+        nombre_negocio.length > 0 &&
+        tipo_id.length > 0 &&
+        celular.length > 0 &&
+        id_usuario.length > 0
+      )
+    }"
+    class="btn2"
+    (click)="enviarPedido()"
+  >
+    Enviar pedido
+  </button>
+</div>
+
+<div
+  class="btn-center"
+  *ngIf="isFormCompleteVisible == true && storage.items.length > 0"
 >
   <button
     [ngClass]="{

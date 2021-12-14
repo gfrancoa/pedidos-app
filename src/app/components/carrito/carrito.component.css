@@ -210,3 +210,15 @@ input[type='radio']{
 
 }
 
+.label-complete-info{
+ color: #8A7965;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+.complete-info-text{
+    font-family: 'Roboto', sans-serif;
+    color: #663B2C;
+    font-size: 1.5rem;
+}
+

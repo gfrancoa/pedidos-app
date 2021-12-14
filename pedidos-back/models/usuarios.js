@@ -4,7 +4,7 @@ var UsuarioSchema = new mongoose.Schema({
   nombre_persona: { type: String },
   nombre_negocio: { type: String },
   tipo_id: { type: String }, // CC, NIT sin digito de verif
-  id_usuario: { type: String },
+  id_usuario: { type: String, unique: true },
   celular: { type: String },
 });
 

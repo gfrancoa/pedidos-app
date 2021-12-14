@@ -2,7 +2,7 @@ const ctrlProducto = {},
   Producto = require("../models/productos");
 
 ctrlProducto.create = async (req, res) => {
-  console.log("se ejecuta metodo create");
+  // console.log("se ejecuta metodo create");
   const newProducto = new Producto({
     titulo: req.body.titulo,
     descripcion: req.body.descripcion,
@@ -68,7 +68,7 @@ ctrlProducto.productoById = async (req, res) => {
 };
 
 ctrlProducto.delete = async (req, res) => {
-  console.log(req.params._id);
+  // console.log(req.params._id);
   const { _id } = req.params;
   const users = await Producto.deleteOne({ _id: _id });
   res.json({ status: true });

@@ -1,20 +1,31 @@
 const ctrlUsuario = {},
   Usuario = require("../models/usuarios");
 
-ctrlUsuario.create = async (req, res) => {
-  console.log("se ejecuta metodo create");
-  const newUsuario = new Usuario({
-    nombre_persona: req.body.nombre_persona,
-    nombre_negocio: req.body.nombre_negocio,
-    tipo_id: req.body.tipo_id, // CC, NIT sin digito de verif
-    id_usuario: req.body.id_usuario,
-    celular: req.body.celular,
-  });
+ctrlUsuario.create = (req, res) => {
+  // console.log("se ejecuta metodo create usuario", req.body.id_usuario);
+  Usuario.findOne({ id_usuario: req.body.id_usuario }, function (err, user) {
+    // console.log("the user", user);
+    if (user == null) {
+      const newUsuario = new Usuario({
+        nombre_persona: req.body.nombre_persona,
+        nombre_negocio: req.body.nombre_negocio,
+        tipo_id: req.body.tipo_id, // CC, NIT sin digito de verif
+        id_usuario: req.body.id_usuario,
+        celular: req.body.celular,
+      });
 
-  await newUsuario.save();
-
-  res.json({
-    msg: "Product created successfully",
+      Usuario.create(newUsuario, function (err, resp) {
+        res.json({
+          message: "Usuario creado exitosamente",
+          status: 201,
+          id: newUsuario._id,
+        });
+      });
+    } else {
+      res.json({
+        message: "Usuario ya existe",
+      });
+    }
   });
 };
 
@@ -47,9 +58,13 @@ ctrlUsuario.update = async (req, res) => {
 };
 
 ctrlUsuario.usuarioById = async (req, res) => {
-  const { _id } = req.params;
-  const usuario = await Usuario.findOne({ _id: _id });
-  res.json(usuario);
+  const { id_usuario } = req.params;
+  const usuario = await Usuario.findOne({ id_usuario: id_usuario });
+  if (usuario == null) {
+    res.json({ message: "usuario no existe", status: 404 });
+  } else {
+    res.json(usuario);
+  }
 };
 
 ctrlUsuario.delete = async (req, res) => {

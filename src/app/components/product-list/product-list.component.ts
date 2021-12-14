@@ -20,6 +20,7 @@ export class ProductListComponent implements OnInit {
   //CONTROLAR SI USUARIO SE DEVUELVE (DESAPARECER DROPDOWNS)
   //CONTROLAR SI EL USUARIO CAMBIA DE PRODUCTO VS EL PRECIO UNITARIO
   //deshabilitar fechas de entrega menores a la de hoy
+  //hacer el layout del form si el usuario existe
   public indexSelected = -1;
   public configObj: any;
   public tipo_masa: String = '';
@@ -55,7 +56,7 @@ export class ProductListComponent implements OnInit {
     this.tipo_masa = this.configObj.masa[index].tipo;
     this.selected_masa_id = this.configObj.masa[index].id;
     this.precio_tipo_masa = this.configObj.masa[index].precio_base;
-    console.log('selected masa id', this.selected_masa_id);
+    // console.log('selected masa id', this.selected_masa_id);
   }
 
   mostrarForm() {
@@ -68,7 +69,7 @@ export class ProductListComponent implements OnInit {
       this.tipo_pan = this.configObj.tipo_pan[index].tipo;
       this.selected_pan_id = this.configObj.tipo_pan[index].id;
       this.data_tamano = this.configObj.tipo_pan[index].data;
-      console.log('selected pan id', this.selected_pan_id);
+      // console.log('selected pan id', this.selected_pan_id);
     }
   }
 
@@ -106,7 +107,7 @@ export class ProductListComponent implements OnInit {
 
   selectCantidad(cantidad: any) {
     this.cantidad = Number(cantidad);
-    console.log('cantidad', Number(cantidad));
+    // console.log('cantidad', Number(cantidad));
   }
 
   agregarItem() {
