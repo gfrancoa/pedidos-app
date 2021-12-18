@@ -46,6 +46,10 @@ export class ProductListComponent implements OnInit {
   ) {
     // console.log('config', this.config.getConfig().opciones_producto);
     this.configObj = this.config.getConfig().opciones_producto;
+       if (sessionStorage.getItem('items')) {
+         let data = JSON.parse(JSON.stringify(sessionStorage.getItem('items')));
+         this.storage.items = JSON.parse(data);
+       }
   }
 
   ngOnInit(): void {}
@@ -130,11 +134,14 @@ export class ProductListComponent implements OnInit {
     };
 
     this.storage.items = [...this.storage.items, item];
+    setTimeout(() => {
+       sessionStorage.setItem(
+         'items',
+         JSON.stringify(this.storage.items)
+       );
+    }, 300);
+   
     this.confirmation = true;
-    // setTimeout(() => {
-    //   this.confirmation = false;
-    //   this.cleanForm();
-    // }, 500);
   }
 
   calcularTotal() {

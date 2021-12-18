@@ -3,6 +3,8 @@ export const configuration = {
     url: 'http://localhost:5000/api',
   },
 
+  status_pedido: ['creado', 'entregado', 'cancelado'],
+
   opciones_producto: {
     masa: [
       {

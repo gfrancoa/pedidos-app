@@ -18,6 +18,7 @@ var PedidoSchema = new mongoose.Schema({
   fecha_creacion: { type: Date, default: new Date() },
   fecha_entrega: { type: String },
   total: { type: Number },
+  status: { type: String, default: "creado" },
 });
 
 module.exports = mongoose.model("pedido", PedidoSchema);

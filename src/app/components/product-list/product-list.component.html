@@ -79,6 +79,7 @@
         type="number"
         (change)="selectCantidad(cantidadPanes.value)"
         (keyup)="selectCantidad(cantidadPanes.value)"
+        oninput="this.value = Math.abs(this.value)"
         min="1"
       />
     </div>
@@ -94,7 +95,7 @@
         cantidad > 0
       "
       class="card-title"
-      >Precio unitario: $ {{ calcularTotal()[0] }}</span
+      >Precio unitario: $ {{ calcularTotal()[0] | number:'':'es' }}</span
     >
     <span
       *ngIf="
@@ -105,7 +106,7 @@
         cantidad > 0
       "
       class="card-title"
-      >Precio total productos: $ {{ calcularTotal()[1] }}</span
+      >Precio total productos: $ {{ calcularTotal()[1] | number:'':'es' }}</span
     >
 
     <button
@@ -118,7 +119,7 @@
           cantidad > 0
         )
       }"
-      class="btn"
+      class="btn-g"
       type="submit"
       (click)="agregarItem()"
       [disabled]="
@@ -138,11 +139,11 @@
 
     <div *ngIf="confirmation">
       <p class="confirm-text text-center">Item añadido satisfactoriamente al carrito.</p>
-      <div class="btn-group">
+      <div class="btn-group-g">
         <button
      
-      class="btn"
-      type="submit"
+      class="btn-g"
+    
       (click)="cleanForm()"
       
     >

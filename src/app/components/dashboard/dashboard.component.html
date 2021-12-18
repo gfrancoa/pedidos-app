@@ -1,0 +1,201 @@
+<div style="text-align: center">
+  <h2>Dashboard de pedidos</h2>
+  <!-- <button type="button" class="btn btn-success">Crear un pedido</button> -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Pedido</th>
+        <th>Fecha entrega</th>
+        <!-- <th>Observaciones</th> -->
+        <th>Status</th>
+        <th>Total</th>
+
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pedidos | paginate: config">
+        <td>{{ item._id }}</td>
+        <td>
+          {{
+            item.usuario.nombre_persona + " | " + item.usuario.nombre_negocio
+          }}
+        </td>
+        <td>
+          {{
+            item.items[0].cantidad +
+              " X " +
+              item.items[0].tipo_pan +
+              " " +
+              item.items[0].tipo_masa +
+              " " +
+              item.items[0].longitud_gramos +
+              "..."
+          }}
+        </td>
+        <td>{{ item.fecha_entrega }}</td>
+        <!-- <td>{{item.observaciones}}</td> -->
+        <td>{{ item.status }}</td>
+        <td>$ {{ item.total | number: "":"es" }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline"
+            (click)="openEditar(content, item)"
+          >
+            Ver detalle
+          </button>
+          <button
+            type="button"
+            class="btn btn-g"
+            (click)="confirmacion(item._id)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+    previousLabel="Anterior"
+    nextLabel="Siguiente"
+    class="custom-pagination"
+    (pageChange)="pageChanged($event)"
+  ></pagination-controls>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Detalle del pedido</h4>
+      <!-- <button type="button" class="close" aria-label="Close" >
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="">ID del pedido</label>
+          <p>{{ selectedId }}</p>
+          <label for="">Fecha de creación</label>
+          <p>{{ fecha_creacion }}</p>
+          <label for=""></label>
+          <label for="">Datos del usuario</label>
+          <div>
+            <span>Nombre persona: {{ usuario.nombre_persona }}</span>
+          </div>
+          <div>
+            <span>Nombre negocio: {{ usuario.nombre_negocio }}</span>
+          </div>
+          <div>
+            <span>{{ usuario.tipo_id }}: {{ usuario.id_usuario }}</span>
+          </div>
+          <br />
+
+          <label for="">Descripción pedido</label>
+
+          <table>
+            <thead>
+              <tr>
+                <td>Cantidad</td>
+                <td>Producto</td>
+                <td>Subtotal</td>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of items">
+              <td>{{ item.cantidad }}</td>
+              <td style="text-align: left">
+                {{
+                  item.tipo_pan +
+                    " " +
+                    item.tipo_masa +
+                    " " +
+                    item.longitud_gramos +
+                    " Topping: " +
+                    item.topping
+                }}
+              </td>
+              <td>$ {{ item.subtotal | number: "":"es" }}</td>
+            </tbody>
+          </table>
+
+          <hr />
+
+          <form [formGroup]="form">
+            <div
+              class="form-group"
+             
+            >
+              <label>Observaciones</label>
+              <input
+                formControlName="observaciones"
+                type="text"
+                class="form-control"
+                 [ngClass]="{
+                'error-validation': submitted && f['observaciones'].errors,
+                'success-validation':
+                  observaciones.valid &&
+                  (observaciones.dirty || observaciones.touched)
+              }"
+              />
+            </div>
+            <div
+              class="form-group"
+              
+            >
+              <label>Fecha de Entrega</label>
+              <input
+                formControlName="fecha_entrega"
+                type="text"
+                class="form-control"
+                [ngClass]="{
+                'error-validation': submitted && f['fecha_entrega'].errors,
+                'success-validation':
+                  fecha_entrega.valid &&
+                  (fecha_entrega.dirty || fecha_entrega.touched)
+              }"
+              />
+            </div>
+            <div
+              class="form-group"
+              style="margin-top: 1rem; margin-bottom: 1rem"
+            >
+              <label for="">Status: </label>
+              <select
+                formControlName="status"
+                [ngClass]="{
+                  'error-validation': submitted && f['status'].errors,
+                  'success-validation':
+                    status.valid && (status.dirty || status.touched)
+                }"
+              >
+                <!-- <option [value]="f['status']" selected>{{form.value.status}}</option> -->
+                <option [ngValue]="item" *ngFor="let item of opciones_status">
+                  {{ item }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Total ($)</label>
+              <p>$ {{ totalVar | number: "":"es" }}</p>
+              <!-- <input
+                formControlName="total"
+                type="number"
+                class="form-control"
+                oninput="this.value = Math.abs(this.value)"
+                min="0"
+              /> -->
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-g" (click)="edit()">
+        Actualizar
+      </button>
+      <button type="button" class="btn btn-outline" (click)="closeModal()">
+        Cerrar
+      </button>
+    </div>
+  </ng-template>
+</div>

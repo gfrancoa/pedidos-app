@@ -68,5 +68,9 @@
     font-size: 0.9rem;
 font-family: 'Roboto', serif;
 color: white;
+display: flex;
+margin:0;
+line-height: 0;
+
 
 }

@@ -54,7 +54,7 @@ ctrlUsuario.update = async (req, res) => {
       celular: celular,
     }
   );
-  res.json({ message: "Usuario actualizado satisfactoriamente" });
+  res.json({ message: "Usuario actualizado satisfactoriamente", status: 200 });
 };
 
 ctrlUsuario.usuarioById = async (req, res) => {

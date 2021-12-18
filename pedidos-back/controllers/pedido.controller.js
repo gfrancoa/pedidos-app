@@ -21,14 +21,15 @@ ctrlPedido.create = async (req, res) => {
 };
 
 ctrlPedido.list = async (req, res) => {
-  const pedidos = await Pedido.find();
+  const pedidos = await Pedido.find().populate("usuario");
 
   res.json(pedidos);
 };
 
 ctrlPedido.update = async (req, res) => {
   const _id = req.params._id;
-  const { items, usuario, observaciones, fecha_entrega, total } = req.body;
+  const { items, usuario, observaciones, fecha_entrega, total, status } =
+    req.body;
   await Pedido.findOneAndUpdate(
     { _id: _id },
     {
@@ -37,9 +38,10 @@ ctrlPedido.update = async (req, res) => {
       observaciones: observaciones,
       fecha_entrega: fecha_entrega,
       total: total,
+      status: status,
     }
   );
-  res.json({ message: "Pedido actualizado satisfactoriamente" });
+  res.json({ message: "Pedido actualizado satisfactoriamente", status: 200 });
 };
 
 ctrlPedido.pedidoById = async (req, res) => {

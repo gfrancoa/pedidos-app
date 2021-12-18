@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +15,14 @@ import { RouterModule } from '@angular/router';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { registerLocaleData } from '@angular/common';
+import localeEsCo from '@angular/common/locales/es-CO';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+registerLocaleData(localeEsCo, 'es');
 
 @NgModule({
   declarations: [
@@ -27,6 +35,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EditarPerfilComponent,
     ProductListComponent,
     CarritoComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +45,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    NgxSpinnerModule,
+    NgbModule,
+    NgxPaginationModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

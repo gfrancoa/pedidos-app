@@ -1,0 +1,41 @@
+label{
+    font-weight: 600;
+}
+
+td{
+    text-align: center;
+}
+
+thead tr{
+    font-weight: 600;
+}
+
+.btn-g{
+    background-color: #8A7965;
+    color: #fff;
+    border-radius: 0.3rem;
+   
+    margin: 2px;
+    border-color: transparent;
+
+}
+
+.btn-outline{
+    background-color: white;
+    color: #8A7965;
+   
+    border-radius: 0.3rem;
+    
+    border: #8A7965 solid 1px;
+
+    margin:2px
+}
+
+h2{
+    color: #8A7965;
+}
+
+thead th{
+    color:saddlebrown;
+}
+

@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import "~bootstrap/dist/css/bootstrap.css";
 
 .logo{
     display: flex;
@@ -20,4 +21,55 @@
 body{
     margin:0;
     padding: 0;
+}
+
+
+.swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  background-color: #663B2C !important;
+  color: #fff;
+  font-size: 1.0625em;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #ea3738eb !important;
+  color: #ea3738 !important;
+}
+
+
+.swal2-styled.swal2-cancel {
+  border: 0;
+  border-radius: .25em;
+  background: initial;
+  background-color: #B4A680 !important;
+  color: #fff;
+  font-size: 1.0625em;
+}
+
+/* .swal2-cancel{
+    margin-right: 10px !important;
+  } */
+
+.swal2-title {
+  font-size: 1.6rem !important;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #663B2C!important;
+}
+
+.swal2-text{
+     font-size: 1.4rem !important;
+  font-family:Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.custom-pagination .ngx-pagination .current {background: #663B2C;}
+
+.error-validation{
+    border: 4px solid rgba(255, 0, 0, 0.383);
+}
+
+.success-validation{
+    border: 4px solid rgba(0, 255, 76, 0.383);
 }
