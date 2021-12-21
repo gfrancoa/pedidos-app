@@ -227,6 +227,13 @@
     *ngIf="isButtonVisible && isFormVisible && storage.items.length > 0"
   >
     <button
+      [disabled]="
+        !(
+          storage.items.length > 0 &&
+          fecha_entrega.length > 0 &&
+          id_usuario.length > 0
+        )
+      "
       [ngClass]="{
         'btn-disabled': !(
           storage.items.length > 0 &&
@@ -246,6 +253,15 @@
     *ngIf="isFormEmptyVisible && isFormVisible && storage.items.length > 0"
   >
     <button
+     [disabled]="!(
+          storage.items.length > 0 &&
+          fecha_entrega.length > 0 &&
+          nombre_persona.length > 0 &&
+          nombre_negocio.length > 0 &&
+          tipo_id.length > 0 &&
+          celular.length > 0 &&
+          id_usuario.length > 0
+        )"
       [ngClass]="{
         'btn-disabled': !(
           storage.items.length > 0 &&
@@ -269,6 +285,15 @@
     *ngIf="isFormCompleteVisible == true && storage.items.length > 0"
   >
     <button
+     [disabled]="!(
+          storage.items.length > 0 &&
+          fecha_entrega.length > 0 &&
+          nombre_persona.length > 0 &&
+          nombre_negocio.length > 0 &&
+          tipo_id.length > 0 &&
+          celular.length > 0 &&
+          id_usuario.length > 0
+        )"
       [ngClass]="{
         'btn-disabled': !(
           storage.items.length > 0 &&

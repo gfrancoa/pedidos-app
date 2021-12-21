@@ -42,7 +42,7 @@
     <select #selectPan (change)="selectTipoPan(selectPan.value)">
       <option [value]="undefined" selected>Seleccione un tipo de pan</option>
       <option
-        *ngFor="let item of configObj.tipo_pan; let i = index"
+        *ngFor="let item of dataTipoPan; let i = index"
         [value]="i"
       >
         {{ item.tipo }}

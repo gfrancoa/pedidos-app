@@ -38,6 +38,7 @@ export class ProductListComponent implements OnInit {
   public cantidad: Number = 0;
   public formIsVisible: Boolean = false;
   public confirmation: Boolean = false;
+  public dataTipoPan: any[] = [];
 
   constructor(
     public formBuilder: FormBuilder,
@@ -46,10 +47,10 @@ export class ProductListComponent implements OnInit {
   ) {
     // console.log('config', this.config.getConfig().opciones_producto);
     this.configObj = this.config.getConfig().opciones_producto;
-       if (sessionStorage.getItem('items')) {
-         let data = JSON.parse(JSON.stringify(sessionStorage.getItem('items')));
-         this.storage.items = JSON.parse(data);
-       }
+    if (sessionStorage.getItem('items')) {
+      let data = JSON.parse(JSON.stringify(sessionStorage.getItem('items')));
+      this.storage.items = JSON.parse(data);
+    }
   }
 
   ngOnInit(): void {}
@@ -61,6 +62,13 @@ export class ProductListComponent implements OnInit {
     this.selected_masa_id = this.configObj.masa[index].id;
     this.precio_tipo_masa = this.configObj.masa[index].precio_base;
     // console.log('selected masa id', this.selected_masa_id);
+    if (this.selected_masa_id == 3) {
+      this.dataTipoPan = this.configObj.tipo_pan_kaiser;
+    } else if (this.selected_masa_id == 4) {
+      this.dataTipoPan = this.configObj.tipo_pan_papa;
+    } else {
+      this.dataTipoPan = this.configObj.tipo_pan;
+    }
   }
 
   mostrarForm() {
@@ -70,9 +78,20 @@ export class ProductListComponent implements OnInit {
   selectTipoPan(index: any) {
     if (index != undefined) {
       // console.log(index);
-      this.tipo_pan = this.configObj.tipo_pan[index].tipo;
-      this.selected_pan_id = this.configObj.tipo_pan[index].id;
-      this.data_tamano = this.configObj.tipo_pan[index].data;
+      if (this.selected_masa_id == 3) {
+        this.tipo_pan = this.configObj.tipo_pan_kaiser[index].tipo;
+        this.selected_pan_id = this.configObj.tipo_pan_kaiser[index].id;
+        this.data_tamano = this.configObj.tipo_pan_kaiser[index].data;
+      } else if (this.selected_masa_id == 4) {
+        this.tipo_pan = this.configObj.tipo_pan_papa[index].tipo;
+        this.selected_pan_id = this.configObj.tipo_pan_papa[index].id;
+        this.data_tamano = this.configObj.tipo_pan_papa[index].data;
+      } else {
+        this.tipo_pan = this.configObj.tipo_pan[index].tipo;
+        this.selected_pan_id = this.configObj.tipo_pan[index].id;
+        this.data_tamano = this.configObj.tipo_pan[index].data;
+      }
+
       // console.log('selected pan id', this.selected_pan_id);
     }
   }
@@ -99,6 +118,10 @@ export class ProductListComponent implements OnInit {
         //sand brioche
       } else if (this.selected_masa_id == 1 && this.selected_pan_id == 3) {
         this.data_topping = this.configObj.topping.sand_brioche;
+      } else if (this.selected_masa_id == 3) {
+        this.data_topping = this.configObj.topping.kaiser;
+      } else if (this.selected_masa_id == 4) {
+        this.data_topping = this.configObj.topping.papa;
       }
     }
   }
@@ -135,12 +158,9 @@ export class ProductListComponent implements OnInit {
 
     this.storage.items = [...this.storage.items, item];
     setTimeout(() => {
-       sessionStorage.setItem(
-         'items',
-         JSON.stringify(this.storage.items)
-       );
+      sessionStorage.setItem('items', JSON.stringify(this.storage.items));
     }, 300);
-   
+
     this.confirmation = true;
   }
 

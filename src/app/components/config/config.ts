@@ -25,6 +25,24 @@ export const configuration = {
         precio_base: 0,
         foto: 'assets/img/tipo_brioche.png',
       },
+      {
+        id: 3,
+        tipo: 'Kaiser',
+        descripcion:
+          'Masa de sal esponjosa y resistente. Aliñada con finas hierbas y topping de queso.',
+
+        precio_base: 0,
+        foto: 'assets/img/kaiser.jpg',
+      },
+      {
+        id: 4,
+        tipo: 'Papa',
+        descripcion:
+          'Pan con un porcentaje de papa en su elaboración. Sabor y aroma a papa más un toque lácteo conferido por la mantequilla. Miga elástica, esponjosa y resistente, apropiada para absorber la humedad de las salsas.',
+
+        precio_base: 0,
+        foto: 'assets/img/pan-papa.jpg',
+      },
     ],
     tipo_pan: [
       {
@@ -51,6 +69,7 @@ export const configuration = {
           { dim: '20 cm - 100 gramos', precio_base: 700, active: true },
         ],
       },
+
       {
         id: 3,
         tipo: 'Sandwich',
@@ -59,6 +78,20 @@ export const configuration = {
           { dim: '20 cms - 120 gramos', precio_base: 600, active: true },
           { dim: '30 cms - 170 gramos', precio_base: 700, active: true },
         ],
+      },
+    ],
+    tipo_pan_kaiser: [
+      {
+        id: 4,
+        tipo: 'Hamburguesa',
+        data: [{ dim: '90 gramos - 10 cm', precio_base: 400, active: true }],
+      },
+    ],
+    tipo_pan_papa: [
+      {
+        id: 5,
+        tipo: 'Hamburguesa',
+        data: [{ dim: '85 gramos - 12 cm', precio_base: 400, active: true }],
       },
     ],
     topping: {
@@ -209,6 +242,10 @@ export const configuration = {
       ],
       sand_brioche: [
         { top: 'Sin topping', foto: 'assets/img/sandwich.png', precio_base: 0 },
+      ],
+      kaiser: [{ top: 'Queso', foto: 'assets/img/kaiser.jpg', precio_base: 0 }],
+      papa: [
+        { top: 'Sin topping', foto: 'assets/img/pan-papa.jpg', precio_base: 0 },
       ],
     },
   },
