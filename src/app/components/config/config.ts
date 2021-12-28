@@ -14,7 +14,7 @@ export const configuration = {
           'Aroma a mantequilla, color amarillo. Elaborado con mantequilla de vaca.',
 
         precio_base: 100,
-        foto: 'assets/img/brioche.png',
+        foto: 'https://i.ibb.co/1dr6LVL/brioche.png',
       },
       {
         id: 2,
@@ -23,7 +23,7 @@ export const configuration = {
           'Aroma neutro, color blanco. Elaborado con margarina vegetal.',
 
         precio_base: 0,
-        foto: 'assets/img/tipo_brioche.png',
+        foto: 'https://i.ibb.co/1dr6LVL/brioche.png',
       },
       {
         id: 3,
@@ -32,7 +32,7 @@ export const configuration = {
           'Masa de sal esponjosa y resistente. Aliñada con finas hierbas y topping de queso.',
 
         precio_base: 0,
-        foto: 'assets/img/kaiser.jpg',
+        foto: 'https://i.ibb.co/d6wh7Hq/kaiser.jpg',
       },
       {
         id: 4,
@@ -41,7 +41,7 @@ export const configuration = {
           'Pan con un porcentaje de papa en su elaboración. Sabor y aroma a papa más un toque lácteo conferido por la mantequilla. Miga elástica, esponjosa y resistente, apropiada para absorber la humedad de las salsas.',
 
         precio_base: 0,
-        foto: 'assets/img/pan-papa.jpg',
+        foto: 'https://i.ibb.co/4V1zcsG/pan-papa.jpg',
       },
     ],
     tipo_pan: [
@@ -98,154 +98,168 @@ export const configuration = {
       hamb_brioche: [
         {
           top: 'Sin topping',
-          foto: 'assets/img/landing2.jpg',
+          foto: 'https://i.ibb.co/qkJcvNK/landing2.jpg',
           precio_base: 0,
         },
         {
           top: 'Ajonjolí blanco',
-          foto: 'assets/img/hamb-ajonjoli-blanco.png',
+          foto: 'https://i.ibb.co/99pxHj0/hamb-ajonjoli-blanco.png',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí negro',
-          foto: 'assets/img/hamb-ajonjoli-negro.png',
+          foto: 'https://i.ibb.co/WWfPBtf/hamb-ajonjoli-negro.png',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí blanco y negro',
-          foto: 'assets/img/hamb-ajonjoli-bn.png',
+          foto: 'https://i.ibb.co/fxYxjcf/hamb-ajonjoli-bn.png',
           precio_base: 100,
         },
       ],
       perro_blanco: [
         {
           top: 'Sin topping',
-          foto: 'assets/img/landing3.jpg',
+          foto: 'https://i.ibb.co/6WD7n85/landing3.jpg',
           precio_base: 0,
         },
         {
           top: 'Ajonjolí blanco',
-          foto: 'assets/img/perro-ajonjoli-blanco.png',
+          foto: 'https://i.ibb.co/hyXGd2t/perro-ajonjoli-blanco.png',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí negro',
-          foto: 'assets/img/perro-ajonjoli-negro.jpg',
+          foto: 'https://i.ibb.co/vDBrKWP/perro-ajonjoli-negro.jpg',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí blanco y negro',
-          foto: 'assets/img/perro-ajonjoli-bn.jpg',
+          foto: 'https://i.ibb.co/NSbqG5X/perro-ajonjoli-bn.jpg',
           precio_base: 100,
         },
         {
           top: 'Finas hierbas y queso',
-          foto: 'assets/img/perro-queso-hierbas.jpg',
+          foto: 'https://i.ibb.co/JjRt0NZ/perro-queso-hierbas.jpg',
           precio_base: 200,
         },
         {
           top: 'Orégano',
-          foto: 'assets/img/perro-oregano.png',
+          foto: 'https://i.ibb.co/DkdgWVm/perro-oregano.png',
           precio_base: 100,
         },
         {
           top: 'Orégano en la masa',
-          foto: 'assets/img/perro-oregano-masa.jpg',
+          foto: 'https://i.ibb.co/QXB5bnJ/perro-oregano-masa.jpg',
           precio_base: 100,
         },
       ],
       hamb_blanco: [
         {
           top: 'Sin topping',
-          foto: 'assets/img/landing2.jpg',
+          foto: 'https://i.ibb.co/qkJcvNK/landing2.jpg',
           precio_base: 0,
         },
         {
           top: 'Ajonjolí blanco',
-          foto: 'assets/img/hamb-ajonjoli-blanco.png',
+          foto: 'https://i.ibb.co/99pxHj0/hamb-ajonjoli-blanco.png',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí negro',
-          foto: 'assets/img/hamb-ajonjoli-negro.png',
+          foto: 'https://i.ibb.co/WWfPBtf/hamb-ajonjoli-negro.png',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí blanco y negro',
-          foto: 'assets/img/hamb-ajonjoli-bn.png',
+          foto: 'https://i.ibb.co/fxYxjcf/hamb-ajonjoli-bn.png',
           precio_base: 100,
         },
         {
           top: 'Finas hierbas y queso',
-          foto: 'assets/img/hamb-queso-hierbas.jpg',
+          foto: 'https://i.ibb.co/LkKv6H6/hamb-queso-hierbas.jpg',
           precio_base: 200,
         },
         {
           top: 'Orégano',
-          foto: 'assets/img/hamb-oregano.jpg',
+          foto: 'https://i.ibb.co/3CMy0bZ/hamb-oregano.jpg',
           precio_base: 100,
         },
         {
           top: 'Orégano en la masa',
-          foto: 'assets/img/hamb-oregano-masa.jpg',
+          foto: 'https://i.ibb.co/6ZCB5MV/hamb-oregano-masa.jpg',
           precio_base: 100,
         },
       ],
       perro_brioche: [
         {
           top: 'Sin topping',
-          foto: 'assets/img/landing3.jpg',
+          foto: 'https://i.ibb.co/6WD7n85/landing3.jpg',
           precio_base: 0,
         },
         {
           top: 'Ajonjolí blanco',
-          foto: 'assets/img/perro-ajonjoli-blanco.png',
+          foto: 'https://i.ibb.co/hyXGd2t/perro-ajonjoli-blanco.png',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí negro',
-          foto: 'assets/img/perro-ajonjoli-negro.jpg',
+          foto: 'https://i.ibb.co/vDBrKWP/perro-ajonjoli-negro.jpg',
           precio_base: 100,
         },
         {
           top: 'Ajonjolí blanco y negro',
-          foto: 'assets/img/perro-ajonjoli-bn.jpg',
+          foto: 'https://i.ibb.co/NSbqG5X/perro-ajonjoli-bn.jpg',
           precio_base: 100,
         },
       ],
       sand_blanco: [
         {
           top: 'Sin topping',
-          foto: 'assets/img/sandwich.png',
+          foto: 'https://i.ibb.co/tQd69zv/sandwich.png',
           precio_base: 0,
         },
         {
           top: 'Ajonjolí blanco',
-          foto: 'assets/img/perro-ajonjoli-blanco.png',
+          foto: 'https://i.ibb.co/hyXGd2t/perro-ajonjoli-blanco.png',
           precio_base: 100,
         },
         {
           top: 'Finas hierbas y queso',
-          foto: 'assets/img/perro-queso-hierbas.jpg',
+          foto: 'https://i.ibb.co/JjRt0NZ/perro-queso-hierbas.jpg',
           precio_base: 200,
         },
         {
           top: 'Orégano',
-          foto: 'assets/img/sandwich-oregano.jpg',
+          foto: 'https://i.ibb.co/JtLfhhx/Vegetables-burger-like-subway-with-oregano-bread.jpg',
           precio_base: 100,
         },
         {
           top: 'Orégano en la masa',
-          foto: 'assets/img/perro-oregano-masa.jpg',
+          foto: 'https://i.ibb.co/QXB5bnJ/perro-oregano-masa.jpg',
           precio_base: 100,
         },
       ],
       sand_brioche: [
-        { top: 'Sin topping', foto: 'assets/img/sandwich.png', precio_base: 0 },
+        {
+          top: 'Sin topping',
+          foto: 'https://i.ibb.co/tQd69zv/sandwich.png',
+          precio_base: 0,
+        },
       ],
-      kaiser: [{ top: 'Queso', foto: 'assets/img/kaiser.jpg', precio_base: 0 }],
+      kaiser: [
+        {
+          top: 'Queso',
+          foto: 'https://i.ibb.co/d6wh7Hq/kaiser.jpg',
+          precio_base: 0,
+        },
+      ],
       papa: [
-        { top: 'Sin topping', foto: 'assets/img/pan-papa.jpg', precio_base: 0 },
+        {
+          top: 'Sin topping',
+          foto: 'https://i.ibb.co/4V1zcsG/pan-papa.jpg',
+          precio_base: 0,
+        },
       ],
     },
   },

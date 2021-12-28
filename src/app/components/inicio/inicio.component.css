@@ -59,7 +59,7 @@ p{
 }
 
 .brdng-card1{
-    background-image: url('../../../assets/img/registro.png');
+    background-image: url('https://i.ibb.co/5F3Rnzj/registro.png');
     background-size: cover;
     height:30rem;
     display: flex;
@@ -67,7 +67,7 @@ p{
 }
 
 .brdng-card2{
-    background-image: url('../../../assets/img/landing2.jpg');
+    background-image: url('https://i.ibb.co/qkJcvNK/landing2.jpg');
     background-size: cover;
     height:25rem;
     display: flex;
@@ -75,7 +75,7 @@ p{
 }
 
 .brdng-card3{
-    background-image: url('../../../assets/img/landing3.jpg');
+    background-image: url('https://i.ibb.co/6WD7n85/landing3.jpg');
     background-size: cover;
     background-color: #fff;
     height:25rem;
