@@ -1,6 +1,21 @@
 # PedidosApp
 
+<img width="1408" alt="image" src="https://github.com/gfrancoa/pedidos-app/assets/74123374/63503edf-e1af-4d3a-ae18-9bd667bfb17d">
+
+## Description
+Webapp used for a burger and sandwich bread shop, where you can choose the type of dough, the type of bread and the toppings you want. Afterwards it takes you to the shopping cart where you can edit your products and you can send your order. This action sends a message with all the data as a whatsapp message. You can also authenticate as a user to retrieve your data and send it along with the order.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+
+## Technologies
+- Angular
+- Node.js
+- MongoDB
+
+## Contributors
+Solo project
+
+------
+##Instructions to run the project
 
 ## Development server
 
